@@ -14,8 +14,8 @@ import { CurrentUser } from './current-user';
   providedIn: 'root'
 })
 export class UserService {
-  private appUrl = 'http://localhost:8080/CardShop/login';
-  private headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+  private appUrl = 'http://localhost:8080/magic-shop/login';
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   private employee: Employee;
   private customer: Customer;
   private admin: Admin;
@@ -26,8 +26,15 @@ export class UserService {
     if (username && password) {
       // we need to log in
       console.log(username);
-      const body = `user=${username}&pass=${password}`;
-      return this.http.post(this.appUrl, body, { headers: this.headers, withCredentials: true }).pipe(
+      const body = `username=${username}&password=${password}`;
+
+      let trial =  new User;
+      trial.username = username;
+      trial.password = password;
+
+      let myJSON = JSON.stringify(trial);
+      console.log(myJSON);
+      return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
