@@ -17,13 +17,10 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    CreateAccountComponent
-=======
+    CreateAccountComponent,
     HomeComponent,
     LoginComponent,
     NavBarComponent
->>>>>>> 7f82bc8076b138fc40669e0d9fde21c325c27f2a
   ],
   imports: [
     BrowserModule,
