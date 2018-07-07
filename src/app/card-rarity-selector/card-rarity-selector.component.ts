@@ -17,7 +17,7 @@ export class CardRaritySelectorComponent implements OnInit {
     return this.rarities.find(e => e.id === +this.selectedRarity);
   }
   ngOnInit() {
-    this.http.get('http://localhost:8080/magic-shop/card/rarity')
+    this.http.get('http://localhost:8080/magic-shop/card/rarity', {withCredentials: true})
       .pipe(map(v => v as CardRarity[]))
       .subscribe(v => { this.rarities = v; console.log(this.rarities); });
   }
