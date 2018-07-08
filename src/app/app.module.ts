@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { CardRaritySelectorComponent } from './card-rarity-selector/card-rarity-selector.component';
+import { CardSetSelectorComponent } from './card-set-selector/card-set-selector.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CardRaritySelectorComponent } from './card-rarity-selector/card-rarity-
     LoginComponent,
     NavBarComponent,
     AddCardComponent,
-    CardRaritySelectorComponent
+    CardRaritySelectorComponent,
+    CardSetSelectorComponent
   ],
   imports: [
     BrowserModule,
