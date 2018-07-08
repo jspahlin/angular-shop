@@ -38,6 +38,7 @@ export class AddCardComponent implements OnInit, AfterViewInit {
     if(this.cardRarity.selected) {
       this.card.rarity = this.cardRarity.getSelected();
     }
+    this.card.id = 0;
     console.log(this.card/* + JSON.stringify(this.cardRarity.getSelected()) */ );
   }
 }

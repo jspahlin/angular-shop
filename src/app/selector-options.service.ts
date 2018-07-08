@@ -15,10 +15,11 @@ export class SelectorOptionsService implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  console.log("GETTING " + this.url)
     this.http.get<SelectorOption[]>(this.url, {withCredentials: true})
       .subscribe(v => { this.data = v; console.log(this.data); });
   }
-  getOptions(): Observable<SelectorOption[]> {
+  public getOptions(): Observable<SelectorOption[]> {
     return this.http.get<SelectorOption[]>(this.url, {withCredentials: true});
   }
   public getSelected(): SelectorOption {
