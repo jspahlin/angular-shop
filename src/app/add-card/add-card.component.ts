@@ -13,6 +13,7 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   public name: string;
   public cmc: number;
   public text: string;
+  public imageUrl: string;
   public rarity: CardRarity;
   public set: SelectorOption;
   @ViewChild(CardRaritySelectorComponent) cardRarity;
