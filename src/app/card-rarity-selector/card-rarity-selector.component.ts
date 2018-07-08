@@ -11,12 +11,12 @@ import {SelectorOption} from '../selector-option';
 })
 export class CardRaritySelectorComponent implements OnInit {
   public rarities: SelectorOption[];
-  public selectedRarity: number;
+  public selected: number;
   constructor(private http: HttpClient, private rarityService: SelectorOptionsService) {
     this.rarityService.url = 'http://localhost:8080/magic-shop/card/rarity';
   }
   public getSelected() {
-    return this.rarities.find(e => e.id === +this.selectedRarity);
+    return this.rarities.find(e => e.id === +this.selected);
   }
   ngOnInit() {
     this.rarityService.getOptions().subscribe(v => { this.rarities = v; });

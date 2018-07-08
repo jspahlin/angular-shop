@@ -16,6 +16,7 @@ export class CardSetSelectorComponent implements OnInit {
     this.setService.url = 'http://localhost:8080/magic-shop/card/set';
   }
   public getSelected() {
+    console.log("here");
     return this.sets.find(e => e.id === +this.selected);
   }
   ngOnInit() {

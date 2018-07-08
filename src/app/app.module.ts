@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { CardRaritySelectorComponent } from './card-rarity-selector/card-rarity-selector.component';
 import { CardSetSelectorComponent } from './card-set-selector/card-set-selector.component';
+import { CardColorComponent } from './card-color/card-color.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CardSetSelectorComponent } from './card-set-selector/card-set-selector.
     NavBarComponent,
     AddCardComponent,
     CardRaritySelectorComponent,
-    CardSetSelectorComponent
+    CardSetSelectorComponent,
+    CardColorComponent
   ],
   imports: [
     BrowserModule,

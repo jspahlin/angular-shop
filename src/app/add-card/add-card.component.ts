@@ -3,6 +3,7 @@ import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-s
 import {CardRarity} from '../card-rarity';
 import {CardSetSelectorComponent} from '../card-set-selector/card-set-selector.component';
 import {SelectorOption} from '../selector-option';
+import {Card} from '../card';
 
 @Component({
   selector: 'app-add-card',
@@ -10,26 +11,33 @@ import {SelectorOption} from '../selector-option';
   styleUrls: ['./add-card.component.css']
 })
 export class AddCardComponent implements OnInit, AfterViewInit {
-  public name: string;
+  public card: Card;
+
   public cmc: number;
-  public text: string;
-  public imageUrl: string;
-  public rarity: CardRarity;
-  public set: SelectorOption;
+  /*public rarity: SelectorOption;
+  public set: SelectorOption;*/
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet
-  constructor() { }
+  constructor() {
+    this.card = new Card();
+  }
 
   ngOnInit() {
 
   }
 
   ngAfterViewInit() {
-    this.rarity = this.cardRarity.selectedRarity;
-    this.set = this.cardSet.selected;
+    this.card.rarity = this.cardRarity.selectedRarity;
+    this.card.set = this.cardSet.selected;
   }
 
   addCard(): void {
-    console.log(this.name + ' ' + this.text + ' ' + JSON.stringify(this.cardRarity.getSelected()));
+    if(this.cardSet.selected) {
+      this.card.set = this.cardSet.getSelected();
+    }
+    if(this.cardRarity.selected) {
+      this.card.rarity = this.cardRarity.getSelected();
+    }
+    console.log(this.card/* + JSON.stringify(this.cardRarity.getSelected()) */ );
   }
 }
