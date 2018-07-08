@@ -16,12 +16,13 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
     this.rarity = this.cardRarity.selectedRarity;
     console.log(this.rarity);
     console.log("here");
+  }
+
+  ngAfterViewInit() {
+
   }
 
   addCard(): void {
