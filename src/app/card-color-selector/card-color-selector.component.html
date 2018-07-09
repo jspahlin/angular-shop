@@ -1,0 +1,3 @@
+<select [(ngModel)]="selectedOptions" name="selectedC" multiple>
+  <option *ngFor="let c of colors" [value]="c.id">{{c.name}}</option>
+</select>

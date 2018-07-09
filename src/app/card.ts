@@ -7,5 +7,5 @@ export class Card {
   public imageUrl: string;
   public set: SelectorOption;
   public rarity: SelectorOption;
-
+  public colors: SelectorOption[];
 }
