@@ -5,11 +5,13 @@ import {CardSetSelectorComponent} from '../card-set-selector/card-set-selector.c
 import {CardColorSelectorComponent} from '../card-color-selector/card-color-selector.component';
 import {SelectorOption} from '../selector-option';
 import {Card} from '../card';
+import {CardService} from '../card.service';
 
 @Component({
   selector: 'app-add-card',
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css']
+  styleUrls: ['./add-card.component.css'],
+  providers: [CardService]
 })
 export class AddCardComponent implements OnInit, AfterViewInit {
   public card: Card;
@@ -20,14 +22,13 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet;
   @ViewChild(CardColorSelectorComponent) cardColor;
-  constructor() {
+  constructor(private cs: CardService) {
     this.card = new Card();
   }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.card.rarity = this.cardRarity.selectedRarity;
     this.card.set = this.cardSet.selected;
   }
 
@@ -43,5 +44,7 @@ export class AddCardComponent implements OnInit, AfterViewInit {
     }
     this.card.id = 0;
     console.log(this.card/* + JSON.stringify(this.cardRarity.getSelected()) */ );
+
+    this.cs.saveCard(this.card).subscribe(c => console.log(c));
   }
 }

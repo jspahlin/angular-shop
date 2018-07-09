@@ -1,7 +1,5 @@
 import {Inject, Injectable, OnInit} from '@angular/core';
-import {CardRarity} from './card-rarity';
 import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
 import {SelectorOption} from './selector-option';
 import {Observable} from 'rxjs';
 
@@ -15,7 +13,6 @@ export class SelectorOptionsService implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-  console.log("GETTING " + this.url)
     this.http.get<SelectorOption[]>(this.url, {withCredentials: true})
       .subscribe(v => { this.data = v; console.log(this.data); });
   }
