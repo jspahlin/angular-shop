@@ -6,6 +6,7 @@ import { LoginComponent } from 'src/app/login/login.component';
 import { HomeComponent } from 'src/app/home/home.component';
 import {AddCardComponent} from '../add-card/add-card.component';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
+import {UserListComponent} from '../user-list/user-list.component';
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
   {
     path: 'rarity',
     component: CardRaritySelectorComponent
+  },
+  {
+    path: 'userlist',
+    component: UserListComponent
   }
 ];
 @NgModule({

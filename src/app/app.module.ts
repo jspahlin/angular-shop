@@ -17,6 +17,7 @@ import { CardRaritySelectorComponent } from './card-rarity-selector/card-rarity-
 import { CardSetSelectorComponent } from './card-set-selector/card-set-selector.component';
 import { CardColorComponent } from './card-color/card-color.component';
 import { CardColorSelectorComponent } from './card-color-selector/card-color-selector.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CardColorSelectorComponent } from './card-color-selector/card-color-sel
     CardRaritySelectorComponent,
     CardSetSelectorComponent,
     CardColorComponent,
-    CardColorSelectorComponent
+    CardColorSelectorComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

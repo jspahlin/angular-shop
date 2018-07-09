@@ -1,9 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
-import {CardRarity} from '../card-rarity';
 import {CardSetSelectorComponent} from '../card-set-selector/card-set-selector.component';
 import {CardColorSelectorComponent} from '../card-color-selector/card-color-selector.component';
-import {SelectorOption} from '../selector-option';
 import {Card} from '../card';
 import {CardService} from '../card.service';
 
