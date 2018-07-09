@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CartComponent } from'src/app/cart/cart.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { HomeComponent } from 'src/app/home/home.component';
 import {AddCardComponent} from '../add-card/add-card.component';
@@ -20,6 +21,10 @@ const routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: 'add-card',

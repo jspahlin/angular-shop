@@ -13,16 +13,17 @@ export class LoginComponent implements OnInit {
   public loggedUser: CurrentUser;
   private username: string;
   private password: string;
+  private sample: CurrentUser;
 
-  constructor(
-    private userService: UserService
-  ) { }
+  constructor( private userService: UserService ) {}
 
   ngOnInit() {
     this.userService.login(null, null).subscribe( user => {
       this.loggedUser = user;
       //  purchase stuff
     });
+    this.sample = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.sample);
   }
   login(): void {
     console.log('Inside login component: '+ this.username + " " + this.password);
