@@ -1,0 +1,3 @@
+<select [(ngModel)]="selected" name="getSelected">
+  <option *ngFor="let c of sets" value="{{c.id}}">{{c.name}}</option>
+</select>

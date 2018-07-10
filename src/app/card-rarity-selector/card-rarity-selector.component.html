@@ -1,0 +1,3 @@
+<select [(ngModel)]="selected" name="selectedR">
+  <option *ngFor="let c of rarities" [value]="c.id">{{c.name}}</option>
+</select>

@@ -1,0 +1,9 @@
+<form>
+  Name: <input type="text" name="name" [(ngModel)]="card.name"/> {{card.name}}
+  Text: <input type="text" name="text" [(ngModel)]="card.text"/> {{card.text}}
+  image URL: <input type="text" name="card.imageUrl" [(ngModel)]="card.imageUrl"/> {{card.imageUrl}}
+  <app-card-rarity-selector></app-card-rarity-selector>
+  <app-card-set-selector></app-card-set-selector>
+
+  <button class="btn btn-primary" (click)="addCard()">Add Card</button>
+</form>

@@ -6,4 +6,7 @@ export class CurrentUser {
     employee: Employee;
     customer: Customer;
     admin: Admin;
+    role: string;
+
+    
 }

@@ -38,10 +38,22 @@ export class UserService {
         map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
-            console.log(user);
-            this.employee = user.employee;
-            this.customer = user.customer;
-            this.admin = user.admin;
+            if(user.role === "EMPLOYEE"){
+              this.employee = user;
+              user.user.role = 'employee';
+            }
+
+            if(user.role === "CUSTOMER"){
+              this.customer = user;
+              user.user.role = 'customer';
+            }
+
+            if(user.role === "ADMIN"){
+              this.admin = user;
+              user.user.role = 'admin';
+            }
+
+            localStorage.setItem('currentUser', JSON.stringify(user.user));
             return user;
           }
         )
@@ -53,9 +65,17 @@ export class UserService {
           resp => {
             const user: CurrentUser = resp as CurrentUser;
             if (user) {
-              this.employee = user.employee;
-              this.customer = user.customer;
-              this.admin = user.admin;
+              if(user.role === "EMPLOYEE"){
+                this.employee = user;
+              }
+  
+              if(user.role === "CUSTOMER"){
+                this.customer = user;
+              }
+  
+              if(user.role === "ADMIN"){
+                this.admin = user;
+              }
             }
             return user;
           }
@@ -65,6 +85,7 @@ export class UserService {
   logout(): Observable<Object> {
     return this.http.delete(this.appUrl, { withCredentials: true }).pipe(
       map(success => {
+        localStorage.removeItem('currentUser');
         this.employee = null;
         this.customer = null;
         this.admin = null;
