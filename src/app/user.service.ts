@@ -38,7 +38,7 @@ export class UserService {
         map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
-            if(user.role === "EMPLOYEE"){
+            /*if(user.role === "EMPLOYEE"){
               this.employee = user;
               user.user.role = 'employee';
             }
@@ -54,6 +54,7 @@ export class UserService {
             }
 
             localStorage.setItem('currentUser', JSON.stringify(user.user));
+            */
             return user;
           }
         )
@@ -66,15 +67,15 @@ export class UserService {
             const user: CurrentUser = resp as CurrentUser;
             if (user) {
               if(user.role === "EMPLOYEE"){
-                this.employee = user;
+                //this.employee = user;
               }
   
               if(user.role === "CUSTOMER"){
-                this.customer = user;
+                //this.customer = user;
               }
   
               if(user.role === "ADMIN"){
-                this.admin = user;
+               // this.admin = user;
               }
             }
             return user;
