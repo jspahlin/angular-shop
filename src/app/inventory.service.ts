@@ -3,7 +3,9 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Inventory } from "./inventory";
 
-
+@Injectable({
+  providedIn: 'root'
+})
 export class InventoryService{
     private readonly baseUrl: string = 'http://localhost:8080/magic-shop';
 
@@ -14,7 +16,7 @@ export class InventoryService{
         withCredentials: true
     };
 
-    constructor(private http:HttpClient){
+    constructor(private http: HttpClient){
 
     }
 
