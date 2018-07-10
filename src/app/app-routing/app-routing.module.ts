@@ -2,15 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CartComponent } from'src/app/cart/cart.component';
+import { CartComponent } from 'src/app/cart/cart.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { HomeComponent } from 'src/app/home/home.component';
-<<<<<<< HEAD
 import { CreateAccountComponent } from '../create-account/create-account.component';
-=======
+
 import {AddCardComponent} from '../add-card/add-card.component';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
->>>>>>> 5dad2f03de52d59150151e07bb15658a83a920b9
 
 const routes = [
   {
