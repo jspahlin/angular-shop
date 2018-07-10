@@ -1,14 +1,15 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
-import {CardRarity} from '../card-rarity';
 import {CardSetSelectorComponent} from '../card-set-selector/card-set-selector.component';
-import {SelectorOption} from '../selector-option';
+import {CardColorSelectorComponent} from '../card-color-selector/card-color-selector.component';
 import {Card} from '../card';
+import {CardService} from '../card.service';
 
 @Component({
   selector: 'app-add-card',
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css']
+  styleUrls: ['./add-card.component.css'],
+  providers: [CardService]
 })
 export class AddCardComponent implements OnInit, AfterViewInit {
   public card: Card;
@@ -17,17 +18,15 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   /*public rarity: SelectorOption;
   public set: SelectorOption;*/
   @ViewChild(CardRaritySelectorComponent) cardRarity;
-  @ViewChild(CardSetSelectorComponent) cardSet
-  constructor() {
+  @ViewChild(CardSetSelectorComponent) cardSet;
+  @ViewChild(CardColorSelectorComponent) cardColor;
+  constructor(private cs: CardService) {
     this.card = new Card();
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   ngAfterViewInit() {
-    this.card.rarity = this.cardRarity.selectedRarity;
     this.card.set = this.cardSet.selected;
   }
 
@@ -38,7 +37,12 @@ export class AddCardComponent implements OnInit, AfterViewInit {
     if(this.cardRarity.selected) {
       this.card.rarity = this.cardRarity.getSelected();
     }
+    if(this.cardColor.selectedOptions) {
+      this.card.colors = this.cardColor.getSelected();
+    }
     this.card.id = 0;
     console.log(this.card/* + JSON.stringify(this.cardRarity.getSelected()) */ );
+
+    this.cs.saveCard(this.card).subscribe(c => console.log(c));
   }
 }

@@ -18,6 +18,8 @@ import { CardRaritySelectorComponent } from './card-rarity-selector/card-rarity-
 import { CardSetSelectorComponent } from './card-set-selector/card-set-selector.component';
 import { CardColorComponent } from './card-color/card-color.component';
 import { InventoryListComponent } from './inventory-list/inventory-list.component';
+import { CardColorSelectorComponent } from './card-color-selector/card-color-selector.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { InventoryListComponent } from './inventory-list/inventory-list.componen
     CardSetSelectorComponent,
     CardColorComponent,
     InventoryListComponent
+    CardColorSelectorComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
