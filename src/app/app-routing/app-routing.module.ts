@@ -35,10 +35,6 @@ const routes = [
     component: CartComponent
   },
   {
-    path: 'cart',
-    component: Component
-  }
-  {
     path: 'add-card',
     component: AddCardComponent
   },
