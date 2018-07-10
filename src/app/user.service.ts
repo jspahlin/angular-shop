@@ -38,23 +38,24 @@ export class UserService {
         map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
-            /*if(user.role === "EMPLOYEE"){
-              this.employee = user;
-              user.user.role = 'employee';
-            }
+            // if(user.role === "EMPLOYEE"){
+            //   this.employee = user;
+            //   user.user.role = 'employee';
+            // }
 
-            if(user.role === "CUSTOMER"){
-              this.customer = user;
-              user.user.role = 'customer';
-            }
+            // if(user.role === "CUSTOMER"){
+            //   this.customer = user;
+            //   user.user.role = 'customer';
+            // }
 
-            if(user.role === "ADMIN"){
-              this.admin = user;
-              user.user.role = 'admin';
-            }
+            // if(user.role === "ADMIN"){
+            //   this.admin = user;
+            //   user.user.role = 'admin';
+            //   console.log(user.user)
+            // }
 
-            localStorage.setItem('currentUser', JSON.stringify(user.user));
-            */
+            // localStorage.setItem('currentUser', JSON.stringify(user.user));
+            
             return user;
           }
         )
