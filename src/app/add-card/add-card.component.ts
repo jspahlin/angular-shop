@@ -20,6 +20,7 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet;
   @ViewChild(CardColorSelectorComponent) cardColor;
+  @ViewChild(CardColorSelectorComponent) cardType;
   constructor(private cs: CardService) {
     this.card = new Card();
   }
@@ -40,6 +41,10 @@ export class AddCardComponent implements OnInit, AfterViewInit {
     if(this.cardColor.selectedOptions) {
       this.card.colors = this.cardColor.getSelected();
     }
+    if(this.cardType.selectedOptions) {
+      this.card.type = this.cardType.getSelected();
+    }
+
     this.card.id = 0;
     console.log(this.card/* + JSON.stringify(this.cardRarity.getSelected()) */ );
 
