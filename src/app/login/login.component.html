@@ -1,34 +1,21 @@
 <ng-container *ngIf="!loggedUser; else display">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        Username:
-        <input type="text" [(ngModel)]="username" (keyup.enter)="login()">
-      </li>
-      <li class="nav-item">
-        Password:
-        <input type="password" [(ngModel)]="password" (keyup.enter)="login()">
-      </li>
-      <li class="nav-item">
-        <button class="btn btn-primary" (click)="login()">Login</button>
-      </li>
-    </ul>
-  </ng-container>
+  Username:
+  <input type="text" [(ngModel)]="username" (keyup.enter)="login()">
+  Password:
+  <input type="password" [(ngModel)]="password" (keyup.enter)="login()">
+  <button class="btn btn-primary" (click)="login()">Login</button>
+</ng-container>
 
   <ng-template #display>
-    <ul class="navbar-nav mr-auto">
-      <!-- <li class="nav-item">
-        <div *ngIf="(this.sample.role === 'customer')">
-          <span>Welcome Customer {{ this.sample.username }}!</span>
-        </div>
-        <div *ngIf="(this.sample.role === 'employee')">
-          <span>Welcome Employee {{ this.sample.username }}!</span>
-        </div>
-        <div *ngIf="(this.sample.role === 'admin')">
-          <span>Welcome Admin {{ this.sample.username }}!</span>
-        </div>
-      </li> -->
-      <li class="nav-item">
-        <button class="btn btn-danger" (click)="logout()">Logout</button>
-      </li>
-    </ul>
+    <!-- <li class="nav-item">
+      <div *ngIf="(this.sample.role === 'customer')">
+        <span>Welcome Customer {{ this.sample.username }}!</span>
+      </div>
+      <div *ngIf="(this.sample.role === 'employee')">
+        <span>Welcome Employee {{ this.sample.username }}!</span>
+      </div>
+      <div *ngIf="(this.sample.role === 'admin')">
+        <span>Welcome Admin {{ this.sample.username }}!</span>
+      </div> -->
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
   </ng-template>

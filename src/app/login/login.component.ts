@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   public loggedUser: CurrentUser;
   private username: string;
   private password: string;
-  private sample: CurrentUser;
 
   constructor( private userService: UserService ) {}
 
@@ -21,16 +20,20 @@ export class LoginComponent implements OnInit {
     this.userService.login(null, null).subscribe( user => {
       this.loggedUser = user;
       //  purchase stuff
+      console.log(this.loggedUser);
+      console.log(this.loggedUser.user);
     });
-    this.sample = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.sample);
   }
+
+  
+
   login(): void {
     console.log('Inside login component: '+ this.username + " " + this.password);
     this.userService.login(this.username, this.password).subscribe(
       user => {
         this.loggedUser = user;
         // purchase stuff
+        console.log(this.loggedUser.user);
       }
     );
   }
