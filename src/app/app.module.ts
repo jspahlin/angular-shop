@@ -34,7 +34,7 @@ import { UserListComponent } from './user-list/user-list.component';
     CardRaritySelectorComponent,
     CardSetSelectorComponent,
     CardColorComponent,
-    InventoryListComponent
+    InventoryListComponent,
     CardColorSelectorComponent,
     UserListComponent
   ],
