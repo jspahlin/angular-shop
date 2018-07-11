@@ -40,6 +40,7 @@ export class UserService {
             console.log("User Service");
             console.log(user);
             
+            return user;
             // if(user.role === "EMPLOYEE"){
             //   this.employee = user;
             //   user.user.role = 'employee';
@@ -57,8 +58,6 @@ export class UserService {
             // }
 
             // localStorage.setItem('currentUser', JSON.stringify(user.user));
-            
-            return user;
           }
         )
       );
