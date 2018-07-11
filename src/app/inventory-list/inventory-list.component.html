@@ -2,7 +2,12 @@
   <ul>
     <li *ngFor= "let d of data" values="{{d.id}}">
       {{d.card.name}},
-      {{d.card.set}}
+      {{d.card.set.name}}
+      <!-- ngfor -->
+      {{d.card.type.name}}
+      <!-- ngfor -->
+      {{d.card.rarity.name}}
+      {{d.card.imageurl}}
     </li>
   </ul>
 </p>
