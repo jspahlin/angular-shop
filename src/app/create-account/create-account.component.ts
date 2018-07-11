@@ -25,7 +25,7 @@ export class CreateAccountComponent implements OnInit {
       
   public register () {
     console.log("Omg, finally it works");
-    this.cus.register(this.username, this.password, this.email);
+    this.cus.register(this.username, this.password, this.email).subscribe(v=>console.log(v));
      }
   }
   
