@@ -25,4 +25,10 @@ export class InventoryService{
     return this.http.get<Inventory[]>(this.baseUrl + '/inventory', this.httpOption);
 
 }
+    public saveInventory(inv: Inventory): Observable<Inventory> {
+      inv.id = 0;
+      inv.sold = 0;
+      console.log(inv);
+      return this.http.post<Inventory>(this.baseUrl + '/inventory/', inv, this.httpOption);
+    }
 }
