@@ -3,5 +3,5 @@ import { Observable } from 'rxjs';
 
 export class Cart {
   public id: number;
-  public cartitems: CartItems;
+  public invoiceLines: CartItems;
 }

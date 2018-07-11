@@ -1,3 +1,19 @@
-cart:
+
+
+<ul>
+    Cart
+    <li *ngFor= "let c of cartStuff" value="{{c.id}}">
+      {{c.card.name}},
+      {{c.card.set}},
+      <!-- <input type="number" (keyup.enter)="update(c.card.id, value)" [(ngModel)] = "value"> -->
+      {{c.unitPrice/100}}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button (click)="remove()">[x]</button>
+    </li>
+    Total:${{total}}
+  </ul>
+
 
 <button class="btn btn-danger" (click)="purchase()">Purchase</button>

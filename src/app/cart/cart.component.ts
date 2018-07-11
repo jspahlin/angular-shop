@@ -13,21 +13,43 @@ import { Cart } from '../cart';
 export class CartComponent implements OnInit {
     public sample: CurrentUser;
     public cart: Cart;
+    public cartStuff: any;
+    private total: number = 0;
 
   constructor( private cartService: CartService, private userService: UserService ) {}
 
   ngOnInit() {
     this.userService.login(null, null).subscribe( user => {
-        this.sample = JSON.parse(localStorage.getItem('currentUser'));
+        this.sample = user;
         console.log(this.sample);
     });
-     this.cartService.getCart().subscribe(v=>{
-       this.cart = v as Cart;
-       console.log(this.cart)
-     });
+    this.cartService.getCart().subscribe(v=>{
+      this.cart = v as Cart;
+      this.cartStuff = this.cart.invoiceLines;
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+          console.log(element);
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
   }
 
   purchase(): void {
     this.cartService.purchase(this.cart);
+  }
+
+  // update(x, q): void{
+  //   console.log("update");
+  //   console.log(this.cart);
+  //   console.log(x + " " + q);
+  //   console.log("update");
+  //   this.cartService.update(x, q);
+  // }
+
+  remove(): void{
+    console.log("remove");
   }
 }

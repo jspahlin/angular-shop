@@ -36,28 +36,29 @@ export class UserService {
       return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
+            const role: string = resp.role;
             const user: CurrentUser = resp as CurrentUser;
             console.log("User Service");
+            console.log(role);
             console.log(user);
             
+            // if(role === "EMPLOYEE"){
+            //   this.employee =resp.user;
+            // }
+
+            // if(role === "CUSTOMER"){
+            //   this.customer = resp.user;
+            // }
+
+            // if(role === "ADMIN"){
+            //   this.admin = resp.user;
+            // }
+
+            // user.admin = this.admin;
+            // user.employee = this.employee;
+            // user.customer = this.customer;
+
             return user;
-            // if(user.role === "EMPLOYEE"){
-            //   this.employee = user;
-            //   user.user.role = 'employee';
-            // }
-
-            // if(user.role === "CUSTOMER"){
-            //   this.customer = user;
-            //   user.user.role = 'customer';
-            // }
-
-            // if(user.role === "ADMIN"){
-            //   this.admin = user;
-            //   user.user.role = 'admin';
-            //   console.log(user.user)
-            // }
-
-            // localStorage.setItem('currentUser', JSON.stringify(user.user));
           }
         )
       );
