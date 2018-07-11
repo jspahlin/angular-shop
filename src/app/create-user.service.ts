@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class CreateUserService {
-  private readonly baseUrl: string = "http://localhost:8080/magic-shop/account/login"
+  private readonly baseUrl: string = "http://localhost:8080/magic-shop/account/new/login"
 
   readonly httpOptions = {
     headers: new HttpHeaders ({
