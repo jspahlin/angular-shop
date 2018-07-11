@@ -21,6 +21,7 @@ import { InventoryListComponent } from './inventory-list/inventory-list.componen
 import { CardColorSelectorComponent } from './card-color-selector/card-color-selector.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CardTypeSelectorComponent } from './card-type-selector/card-type-selector.component';
+import { AddInventoryComponent } from './add-inventory/add-inventory.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CardTypeSelectorComponent } from './card-type-selector/card-type-select
     InventoryListComponent,
     CardColorSelectorComponent,
     UserListComponent,
-    CardTypeSelectorComponent
+    CardTypeSelectorComponent,
+    AddInventoryComponent
   ],
   imports: [
     BrowserModule,

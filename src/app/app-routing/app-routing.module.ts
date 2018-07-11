@@ -12,6 +12,7 @@ import { InventoryListComponent } from 'src/app/inventory-list/inventory-list.co
 import {AddCardComponent} from '../add-card/add-card.component';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
 import {UserListComponent} from '../user-list/user-list.component';
+import {AddInventoryComponent} from '../add-inventory/add-inventory.component';
 
 const routes = [
   {
@@ -35,6 +36,9 @@ const routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  { path: 'add-inventory',
+    component: AddInventoryComponent
   },
   {
     path: 'inventory',
