@@ -41,7 +41,7 @@ export class UserService {
             console.log("User Service");
             console.log(role);
             console.log(user);
-            
+
             // if(role === "EMPLOYEE"){
             //   this.employee =resp.user;
             // }
@@ -72,11 +72,11 @@ export class UserService {
               if(user.role === "EMPLOYEE"){
                 //this.employee = user;
               }
-  
+
               if(user.role === "CUSTOMER"){
                 //this.customer = user;
               }
-  
+
               if(user.role === "ADMIN"){
                // this.admin = user;
               }

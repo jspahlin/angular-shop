@@ -3,5 +3,7 @@ export class User {
     username: string;
     password: string;
     email: string;
+    billingAddress: string;
+    shippingAddress: string;
     role: string;
 }
