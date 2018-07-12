@@ -48,7 +48,7 @@ export class UserService {
             const role: string = this.role;
             // console.log(role);
             console.log(user);
-            
+
             if(role === "EMPLOYEE"){
               this.employee =user.user;
             }
@@ -76,19 +76,16 @@ export class UserService {
           resp => {
             const user: CurrentUser = resp as CurrentUser;
             this.role = user.role;
-            
-            console.log("0")
-            console.log(this.user);
-            console.log("0")
-            if (user) {
+
+            if (this.user) {
               if(this.role === "EMPLOYEE"){
                 this.employee = user.user;
               }
-  
+
               if(this.role === "CUSTOMER"){
                 this.customer = user.user;
               }
-  
+
               if(this.role === "ADMIN"){
                this.admin = user.user;
               }

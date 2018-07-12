@@ -31,7 +31,12 @@ export class InventoryListComponent implements OnInit {
 
     this.cartService.add(this.cart.id, x, quantity).subscribe(v=>{this.cart = v as Cart;});
   }
+  addStock(x, quantity): void{
+    console.log('add');
+    console.log(this.cart.id, x, quantity);
 
+    this.cs.add(this.inventory.id, x, quantity).subscribe(v=>{this.cart = v as Inventory;});
+  }
   isEmployee(): boolean{
     return this.userService.isEmployee();
   }
