@@ -7,6 +7,7 @@ import { LoginComponent } from 'src/app/login/login.component';
 import { HomeComponent } from 'src/app/home/home.component';
 import { CreateAccountComponent } from '../create-account/create-account.component';
 import { InventoryListComponent } from 'src/app/inventory-list/inventory-list.component';
+import { InvoiceListComponent } from 'src/app/invoice-list/invoice-list.component';
 
 
 import {AddCardComponent} from '../add-card/add-card.component';
@@ -43,6 +44,10 @@ const routes = [
   {
     path: 'inventory',
     component: InventoryListComponent
+  },
+  {
+    path: 'invoice-list',
+    component: InvoiceListComponent
   },
   {
     path: 'add-card',

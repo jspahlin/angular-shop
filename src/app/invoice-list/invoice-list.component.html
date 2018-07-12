@@ -1,3 +1,23 @@
-<p>
-  invoice-list works!
-</p>
+<ng-container *ngIf="isEmployee()">
+  Invoice List
+  <ul *ngFor= "let c of cartList">
+    <li *ngIf="c.status === 'PENDINGAPPROVAL'" value="{{c.id}}">
+      {{c.id}}: &nbsp;&nbsp;&nbsp;&nbsp;
+      {{c.status}}
+      <button (click)="approve()">Approve and Ship</button>
+    </li>
+  </ul>
+</ng-container>
+    
+
+<ng-container *ngIf="isAdmin() || isCustomer()">
+  Invoice List
+    <ul *ngFor= "let c of cartList">
+      <li value="{{c.id}}">
+        {{c.id}} &nbsp;&nbsp;
+        {{c.customerId.shippingAddress}}: &nbsp;&nbsp;&nbsp;&nbsp;
+        {{c.status}}
+      <button (click)="approve(c.id)" *ngIf="c.status === 'PENDINGAPPROVAL'">Approve and Ship</button>
+    </li>
+  </ul>
+</ng-container>

@@ -90,14 +90,44 @@ export class CartService {
 
   public remove(lineid: number): Observable<Cart>{
     let extraURL = '/cart/item/remove/' + lineid;
-    console.log(extraURL);
     return this.http.delete<Cart>(this.baseUrl + extraURL, this.httpOption).pipe(
       map(
         resp => {
           const cart: Cart = resp as Cart;
-          console.log(cart);
           return cart;
         })
       );
+  }
+
+  public getAllCarts(): Observable<any>{
+    let extraURL = '/cart/get';
+    return this.http.get<any>(this.baseUrl + extraURL, this.httpOption).pipe(
+      map(
+        resp =>{
+          const list: any = resp as any;
+          return list;
+        }
+      )
+    )
+  }
+
+  public approve(cartid): Observable<any>{
+    let extraURL = '/cart/approve';
+
+    let approveJSON = {
+      cartID: cartid,
+      cardID: null,
+      lineID: null,
+      quantity: null
+    }
+
+    return this.http.post<any>(this.baseUrl + extraURL, approveJSON, this.httpOption).pipe(
+      map(
+        resp =>{
+          const list: any = resp as any;
+          return list;
+        }
+      )
+    )
   }
 }
