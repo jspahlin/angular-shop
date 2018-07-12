@@ -38,27 +38,27 @@ export class UserService {
       return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
-            const role: string = resp.role;
+            // const role: string = resp.role;
             const user: CurrentUser = resp as CurrentUser;
             this.user = user.user;
-            console.log(role);
+            // console.log(role);
             console.log(user);
             
-            if(role === "EMPLOYEE"){
-              this.employee =user.user;
-            }
+            // if(role === "EMPLOYEE"){
+            //   this.employee =user.user;
+            // }
 
-            if(role === "CUSTOMER"){
-              this.customer = user.user;
-            }
+            // if(role === "CUSTOMER"){
+            //   this.customer = user.user;
+            // }
 
-            if(role === "ADMIN"){
-              this.admin = user.user;
-            }
+            // if(role === "ADMIN"){
+            //   this.admin = user.user;
+            // }
 
-            user.admin = this.admin;
-            user.employee = this.employee;
-            user.customer = this.customer;
+            // user.admin = this.admin;
+            // user.employee = this.employee;
+            // user.customer = this.customer;
 
             return user;
           }
@@ -70,24 +70,24 @@ export class UserService {
         .pipe(map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
-            this.role = user.role;
+            // this.role = user.role;
             
-            console.log("0")
-            console.log(this.user);
-            console.log("0")
-            if (user) {
-              if(this.role === "EMPLOYEE"){
-                this.employee = user.user;
-              }
+            // console.log("0")
+            // console.log(this.user);
+            // console.log("0")
+            // if (user) {
+            //   if(this.role === "EMPLOYEE"){
+            //     this.employee = user.user;
+            //   }
   
-              if(this.role === "CUSTOMER"){
-                this.customer = user.user;
-              }
+            //   if(this.role === "CUSTOMER"){
+            //     this.customer = user.user;
+            //   }
   
-              if(this.role === "ADMIN"){
-               this.admin = user.user;
-              }
-            }
+            //   if(this.role === "ADMIN"){
+            //    this.admin = user.user;
+            //   }
+            // }
             return user;
           }
         ));
