@@ -32,16 +32,46 @@ export class CartService {
       );
   }
 
-  public purchase(cart: Cart){
-    console.log("here");
-    return this.http.post(this.baseUrl + '/cart/purchase', cart, this.httpOption);
+  public purchase(): Observable<Cart>{
+    console.log("hi");
+    return this.http.post<Cart>(this.baseUrl + '/cart/purchase', '', this.httpOption).pipe(
+      map(
+        resp => {
+          const cart: Cart = resp as Cart;
+          console.log(cart);
+          return cart;
+        })
+      );
   }  
+
+  public add(cartid:number, cardid: number, quantity: number): Observable<Cart>{
+    console.log(cartid + " " + cardid + " " + quantity);
+
+    let addJSON = {
+      cartID: cartid,
+      cardID: cardid,
+      lineID: null,
+      quantity: quantity
+    }
+    
+    console.log(addJSON);
+
+    return this.http.post<Cart>(this.baseUrl + '/cart/add', addJSON, this.httpOption).pipe(
+      map(
+        resp => {
+          const cart: Cart = resp as Cart;
+          console.log(cart);
+          return cart;
+        })
+      );
+  }
 
   public update(cartid:number, lineid: number, quantity: number): Observable<Cart>{
     console.log(cartid + " " + lineid + " " + quantity);
 
     let updateJSON = {
       cartID: cartid,
+      cardID: null,
       lineID: lineid,
       quantity: quantity
     }
@@ -49,6 +79,19 @@ export class CartService {
     console.log(updateJSON);
 
     return this.http.post<Cart>(this.baseUrl + '/cart/update', updateJSON, this.httpOption).pipe(
+      map(
+        resp => {
+          const cart: Cart = resp as Cart;
+          console.log(cart);
+          return cart;
+        })
+      );
+  }
+
+  public remove(lineid: number): Observable<Cart>{
+    let extraURL = '/cart/item/remove/' + lineid;
+    console.log(extraURL);
+    return this.http.delete<Cart>(this.baseUrl + extraURL, this.httpOption).pipe(
       map(
         resp => {
           const cart: Cart = resp as Cart;

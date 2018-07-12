@@ -25,9 +25,6 @@ export class CartComponent implements OnInit {
     });
     this.cartService.getCart().subscribe(v=>{
       this.cart = v as Cart;
-      console.log("0");
-      console.log(this.cart.invoiceLines);
-      console.log("0");
       this.cartStuff = this.cart.invoiceLines;
       for (const card in this.cart.invoiceLines) {
         if (this.cart.invoiceLines.hasOwnProperty(card)) {
@@ -43,16 +40,7 @@ export class CartComponent implements OnInit {
   }
 
   purchase(): void {
-    this.cartService.purchase(this.cart);
-  }
-
-  update(x, q): void{
-    console.log("update");
-    console.log(this.cart.id);
-    console.log(x + " " + q);
-    console.log("update");
-    
-    this.cartService.update(this.cart.id,x, q).subscribe(v=>{
+    this.cartService.purchase().subscribe(v=>{
       this.cart = v as Cart;
       this.total = 0;
       this.cartStuff = this.cart.invoiceLines;
@@ -68,7 +56,40 @@ export class CartComponent implements OnInit {
     });
   }
 
-  remove(): void{
-    console.log("remove");
+  update(x, q): void{
+    this.cartService.update(this.cart.id, x, q).subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
+
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+    
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
+  }
+
+  remove(x): void{
+    console.log('remove');
+    console.log(x);
+
+    this.cartService.remove(x).subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
+
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+    
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
   }
 }

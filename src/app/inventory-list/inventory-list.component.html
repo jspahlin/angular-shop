@@ -16,7 +16,8 @@
       Price:
       {{d.card.price}} Cents
       </p>
-      <button ng-click="addCart()" >Add to Cart </button>
+      <input type="number" [(ngModel)]="d.quantity">
+      <button (click)="addCart(d.id, d.quantity)" >Add to Cart </button>
     <div ng-if="userRole == EMPLOYEE"> 
     <button ng-click="addStock()">add stock</button>
     </div>
