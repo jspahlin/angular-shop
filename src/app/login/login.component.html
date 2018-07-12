@@ -1,4 +1,4 @@
-<ng-container *ngIf="!loggedUser; else display">
+<ng-container *ngIf="!loggedUser">
   Username:
   <input type="text" [(ngModel)]="username" (keyup.enter)="login()">
   Password:
@@ -6,16 +6,32 @@
   <button class="btn btn-primary" (click)="login()">Login</button>
 </ng-container>
 
-  <ng-template #display>
-    <!-- <li class="nav-item">
-      <div *ngIf="(this.sample.role === 'customer')">
-        <span>Welcome Customer {{ this.sample.username }}!</span>
+<ng-container *ngIf="isCustomer()">
+  <span>Welcome Customer {{ this.loggedUser.user.username }}!</span>
+</ng-container>
+
+<ng-container *ngIf="isEmployee()">
+  <span>Welcome Employee {{ this.loggedUser.user.username }}!</span>
+</ng-container>
+
+<ng-container *ngIf="isAdmin()">
+  <span>Welcome Admin {{ this.loggedUser.user.username }}!</span>
+</ng-container>
+
+<ng-container *ngIf="loggedUser">
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</ng-container>
+
+
+  <!-- <ng-template #display>
+      <div *ngIf="isCustomer()">
+        <span>Welcome Customer {{ this.loggedUser.user.username }}!</span>
       </div>
-      <div *ngIf="(this.sample.role === 'employee')">
-        <span>Welcome Employee {{ this.sample.username }}!</span>
+      <div *ngIf="isEmployee()">
+        <span>Welcome Employee {{ this.loggedUser.user.username }}!</span>
       </div>
-      <div *ngIf="(this.sample.role === 'admin')">
-        <span>Welcome Admin {{ this.sample.username }}!</span>
-      </div> -->
+      <div *ngIf="isAdmin()">
+        <span>Welcome Admin {{ this.loggedUser.user.username }}!</span>
+      </div>
     <button class="btn btn-danger" (click)="logout()">Logout</button>
-  </ng-template>
+  </ng-template> -->

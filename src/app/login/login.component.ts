@@ -39,4 +39,14 @@ export class LoginComponent implements OnInit {
     this.username = null;
     this.password = null;
   }
+
+  isCustomer(): boolean{
+    return this.userService.isCustomer();
+  }
+  isEmployee(): boolean{
+    return this.userService.isEmployee();
+  }
+  isAdmin(): boolean{
+    return this.userService.isAdmin();
+  }
 }
