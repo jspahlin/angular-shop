@@ -47,8 +47,7 @@ import { InvoiceListComponent } from './invoice-list/invoice-list.component';
     UserListComponent,
     CardTypeSelectorComponent,
     AddInventoryComponent,
-    InvoiceListComponent
-
+    InvoiceListComponent,
     SingleInventoryComponent
   ],
   imports: [
