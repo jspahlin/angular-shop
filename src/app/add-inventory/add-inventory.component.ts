@@ -16,6 +16,7 @@ import {Inventory} from '../inventory';
 export class AddInventoryComponent implements OnInit, AfterViewInit {
   public card: Card;
   public quantity: number;
+  public buy:number;
 
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet;
