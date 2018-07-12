@@ -52,19 +52,20 @@ export class CartComponent implements OnInit {
     console.log(x + " " + q);
     console.log("update");
     
-    // this.cartService.update(this.cart.id,x, q).subscribe(v=>{
-    //   this.cart = v as Cart;
-      
-    //   // this.cartStuff = this.cart.invoiceLines;
-    //   // for (const card in this.cart.invoiceLines) {
-    //   //   if (this.cart.invoiceLines.hasOwnProperty(card)) {
-    //   //     const element = this.cart.invoiceLines[card];
+    this.cartService.update(this.cart.id,x, q).subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
+
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
     
-    //   //     this.total = this.total + (element.quantity * element.unitPrice);
-    //   //   } 
-    //   // }
-    //   // this.total = this.total/100;
-    // });
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
   }
 
   remove(): void{
