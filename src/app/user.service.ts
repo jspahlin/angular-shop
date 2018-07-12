@@ -38,29 +38,27 @@ export class UserService {
       return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
-            // const role: string = resp.role;
+            const role: string = resp.role;
             const user: CurrentUser = resp as CurrentUser;
-            this.role = user.role;
             this.user = user.user;
-            console.log("User Service");
-            // console.log(role);
+            console.log(role);
             console.log(user);
             
-            // if(role === "EMPLOYEE"){
-            //   this.employee =resp.user;
-            // }
+            if(role === "EMPLOYEE"){
+              this.employee =user.user;
+            }
 
-            // if(role === "CUSTOMER"){
-            //   this.customer = resp.user;
-            // }
+            if(role === "CUSTOMER"){
+              this.customer = user.user;
+            }
 
-            // if(role === "ADMIN"){
-            //   this.admin = resp.user;
-            // }
+            if(role === "ADMIN"){
+              this.admin = user.user;
+            }
 
-            // user.admin = this.admin;
-            // user.employee = this.employee;
-            // user.customer = this.customer;
+            user.admin = this.admin;
+            user.employee = this.employee;
+            user.customer = this.customer;
 
             return user;
           }
@@ -73,18 +71,21 @@ export class UserService {
           resp => {
             const user: CurrentUser = resp as CurrentUser;
             this.role = user.role;
-            this.user = user.user;
+            
+            console.log("0")
+            console.log(this.user);
+            console.log("0")
             if (user) {
-              if(user.role === "EMPLOYEE"){
-                //this.employee = user;
+              if(this.role === "EMPLOYEE"){
+                this.employee = user.user;
               }
   
-              if(user.role === "CUSTOMER"){
-                //this.customer = user;
+              if(this.role === "CUSTOMER"){
+                this.customer = user.user;
               }
   
-              if(user.role === "ADMIN"){
-               // this.admin = user;
+              if(this.role === "ADMIN"){
+               this.admin = user.user;
               }
             }
             return user;

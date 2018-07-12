@@ -27,9 +27,11 @@ export class CartComponent implements OnInit {
       this.cart = v as Cart;
       this.cartStuff = this.cart.invoiceLines;
       for (const card in this.cart.invoiceLines) {
-        if (this.cart.hasOwnProperty(card)) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
           const element = this.cart.invoiceLines[card];
+          console.log("^");
           console.log(element);
+          console.log("^");
           this.total = this.total + (element.quantity * element.unitPrice);
         } 
       }
@@ -38,18 +40,56 @@ export class CartComponent implements OnInit {
   }
 
   purchase(): void {
-    this.cartService.purchase(this.cart);
+    this.cartService.purchase().subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
+
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+    
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
   }
 
-  // update(x, q): void{
-  //   console.log("update");
-  //   console.log(this.cart);
-  //   console.log(x + " " + q);
-  //   console.log("update");
-  //   this.cartService.update(x, q);
-  // }
+  update(x, q): void{
+    this.cartService.update(this.cart.id, x, q).subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
 
-  remove(): void{
-    console.log("remove");
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+    
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
+  }
+
+  remove(x): void{
+    console.log('remove');
+    console.log(x);
+
+    this.cartService.remove(x).subscribe(v=>{
+      this.cart = v as Cart;
+      this.total = 0;
+      this.cartStuff = this.cart.invoiceLines;
+
+      for (const card in this.cart.invoiceLines) {
+        if (this.cart.invoiceLines.hasOwnProperty(card)) {
+          const element = this.cart.invoiceLines[card];
+    
+          this.total = this.total + (element.quantity * element.unitPrice);
+        } 
+      }
+      this.total = this.total/100;
+    });
   }
 }

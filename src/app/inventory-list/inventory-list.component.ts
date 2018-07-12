@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../inventory.service';
 import { Inventory } from '../inventory';
 import { User } from '../user';
+import { Cart } from '../cart';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-inventory-list',
@@ -11,13 +13,22 @@ import { User } from '../user';
 })
 export class InventoryListComponent implements OnInit {
   public data: Inventory[];
+  public cart: Cart;
   public userRole: User;
 
-  constructor(private cs: InventoryService) {
+  constructor(private cs: InventoryService, private cartService: CartService) {
    }
 
   ngOnInit() {
     this.cs.listInventory().subscribe(v => {this.data = v; console.log(v);});
+    this.cartService.getCart().subscribe(v=>{this.cart = v as Cart;});
+  }
+
+  addCart(x, quantity): void{
+    console.log('add');
+    console.log(this.cart.id, x, quantity);
+
+    this.cartService.add(this.cart.id, x, quantity).subscribe(v=>{this.cart = v as Cart;});
   }
 
 }

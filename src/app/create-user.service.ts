@@ -22,9 +22,11 @@ export class CreateUserService {
 /**
  * register
  */
-public register(username: string, password: string, email: string): Observable<any>  {
-  return this.http.post<any>(this.baseUrl, {'id':0, 'username': username, 'password': password, 'email': email},
+public register(username: string, password: string, email: string,
+                billingAddress: string, shippingAddress: string): Observable<any>  {
+  return this.http.post<any>(this.baseUrl, {'id':0, 'username': username, 'password': password, 'email': email,
+                                            'billingAddress': billingAddress, 'shippingAddress': shippingAddress},
    this.httpOptions);
 }
-}  
+}
 
