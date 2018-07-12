@@ -14,18 +14,18 @@ export class CreateAccountComponent implements OnInit {
   private username: string;
   private password: string;
   private email: string;
+  private billingAddress: string;
+  private shippingAddress: string;
 
   constructor(private cus: CreateUserService  ) {
 
    }
 
   ngOnInit() {
-    
+
       }
-      
+
   public register () {
-    console.log("Omg, finally it works");
-    this.cus.register(this.username, this.password, this.email).subscribe(v=>console.log(v));
+    this.cus.register(this.username, this.password, this.email, this.billingAddress, this.shippingAddress).subscribe(v=>console.log(v));
      }
   }
-  
