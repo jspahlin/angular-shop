@@ -4,6 +4,7 @@ import {CardSetSelectorComponent} from '../card-set-selector/card-set-selector.c
 import {CardColorSelectorComponent} from '../card-color-selector/card-color-selector.component';
 import {Card} from '../card';
 import {CardService} from '../card.service';
+import {CardTypeSelectorComponent} from '../card-type-selector/card-type-selector.component';
 
 @Component({
   selector: 'app-add-card',
@@ -20,7 +21,7 @@ export class AddCardComponent implements OnInit, AfterViewInit {
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet;
   @ViewChild(CardColorSelectorComponent) cardColor;
-  @ViewChild(CardColorSelectorComponent) cardType;
+  @ViewChild(CardTypeSelectorComponent) cardType;
   constructor(private cs: CardService) {
     this.card = new Card();
   }
