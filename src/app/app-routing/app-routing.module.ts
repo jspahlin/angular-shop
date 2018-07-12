@@ -13,6 +13,7 @@ import {AddCardComponent} from '../add-card/add-card.component';
 import {CardRaritySelectorComponent} from '../card-rarity-selector/card-rarity-selector.component';
 import {UserListComponent} from '../user-list/user-list.component';
 import {AddInventoryComponent} from '../add-inventory/add-inventory.component';
+import { SingleInventoryComponent } from '../single-inventory/single-inventory.component';
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
+  {
+    path: 'inventory/:id',
+    component: SingleInventoryComponent
+  },
+
   {
   path: 'register',
   component: CreateAccountComponent
