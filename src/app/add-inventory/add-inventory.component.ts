@@ -6,6 +6,7 @@ import {Card} from '../card';
 import {CardService} from '../card.service';
 import {InventoryService} from '../inventory.service';
 import {Inventory} from '../inventory';
+import {CardTypeSelectorComponent} from '../card-type-selector/card-type-selector.component';
 
 @Component({
   selector: 'app-add-inventory',
@@ -21,7 +22,7 @@ export class AddInventoryComponent implements OnInit, AfterViewInit {
   @ViewChild(CardRaritySelectorComponent) cardRarity;
   @ViewChild(CardSetSelectorComponent) cardSet;
   @ViewChild(CardColorSelectorComponent) cardColor;
-  @ViewChild(CardColorSelectorComponent) cardType;
+  @ViewChild(CardTypeSelectorComponent) cardType;
   constructor(private cs: InventoryService) {
     this.card = new Card();
   }
