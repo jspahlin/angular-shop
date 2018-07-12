@@ -26,6 +26,7 @@ import { AddInventoryComponent } from './add-inventory/add-inventory.component';
 import { SingleInventoryComponent } from './single-inventory/single-inventory.component';
 
 import { InvoiceListComponent } from './invoice-list/invoice-list.component';
+import { TopCardComponent } from './top-card/top-card.component';
 
 
 
@@ -48,7 +49,8 @@ import { InvoiceListComponent } from './invoice-list/invoice-list.component';
     CardTypeSelectorComponent,
     AddInventoryComponent,
     InvoiceListComponent,
-    SingleInventoryComponent
+    SingleInventoryComponent,
+    TopCardComponent
   ],
   imports: [
     BrowserModule,
