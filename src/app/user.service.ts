@@ -36,10 +36,10 @@ export class UserService {
       return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
-            const role: string = resp.role;
+            // const role: string = resp.role;
             const user: CurrentUser = resp as CurrentUser;
             console.log("User Service");
-            console.log(role);
+            // console.log(role);
             console.log(user);
             
             // if(role === "EMPLOYEE"){

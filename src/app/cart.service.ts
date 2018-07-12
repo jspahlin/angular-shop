@@ -26,10 +26,6 @@ export class CartService {
       map(
         resp => {
           const cart: Cart = resp as Cart;
-          
-          console.log("-");
-          console.log(cart);
-          console.log("-");
 
           return cart;
         })
@@ -41,11 +37,24 @@ export class CartService {
     return this.http.post(this.baseUrl + '/cart/purchase', cart, this.httpOption);
   }  
 
-  public update(cardid: number, quantity: number){
-    console.log("update@service");
+  public update(cartid:number, lineid: number, quantity: number): Observable<Cart>{
+    console.log(cartid + " " + lineid + " " + quantity);
+
+    let updateJSON = {
+      cartID: cartid,
+      lineID: lineid,
+      quantity: quantity
+    }
     
+    console.log(updateJSON);
 
-
-    this.http.post(this.baseUrl + '/cart/update', this.httpOption);
+    return this.http.post<Cart>(this.baseUrl + '/cart/update', updateJSON, this.httpOption).pipe(
+      map(
+        resp => {
+          const cart: Cart = resp as Cart;
+          console.log(cart);
+          return cart;
+        })
+      );
   }
 }
