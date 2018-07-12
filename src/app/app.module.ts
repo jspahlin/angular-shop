@@ -23,6 +23,7 @@ import { CardColorSelectorComponent } from './card-color-selector/card-color-sel
 import { UserListComponent } from './user-list/user-list.component';
 import { CardTypeSelectorComponent } from './card-type-selector/card-type-selector.component';
 import { AddInventoryComponent } from './add-inventory/add-inventory.component';
+import { SingleInventoryComponent } from './single-inventory/single-inventory.component';
 
 import { InvoiceListComponent } from './invoice-list/invoice-list.component';
 
