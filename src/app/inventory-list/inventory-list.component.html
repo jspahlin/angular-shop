@@ -24,7 +24,7 @@
       <input type="number" [(ngModel)]="d.quantity" >
       <button (click)="addCart(d.id, d.quantity)" class="btn btn-primary">Add to Cart </button></div>
     <div>
-      <div *ngIf="role === EMPLOYEE">  
+      <div *ngIf="isAdmin()">  
         <input type="number" [(ngModel)]="d.stock">
     <button ng-click="addStock(d.id, d.stock)"class="btn btn-primary">add stock</button></div></div></div></div>
     </div>
