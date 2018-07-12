@@ -10,7 +10,7 @@
 </ng-container>
     
 
-<ng-container *ngIf="isAdmin() || isCustomer()">
+<ng-container *ngIf="isAdmin() || isEmployee()">
   Invoice List
     <ul *ngFor= "let c of cartList">
       <li value="{{c.id}}">
