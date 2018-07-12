@@ -19,6 +19,8 @@ export class UserService {
   private employee: Employee;
   private customer: Customer;
   private admin: Admin;
+  public role: string;
+  public user: User;
 
   constructor(private http: HttpClient) { }
 
@@ -36,10 +38,12 @@ export class UserService {
       return this.http.post(this.appUrl, myJSON, { headers: this.headers, withCredentials: true }).pipe(
         map(
           resp => {
-            const role: string = resp.role;
+            // const role: string = resp.role;
             const user: CurrentUser = resp as CurrentUser;
+            this.role = user.role;
+            this.user = user.user;
             console.log("User Service");
-            console.log(role);
+            // console.log(role);
             console.log(user);
             
             // if(role === "EMPLOYEE"){
@@ -68,6 +72,8 @@ export class UserService {
         .pipe(map(
           resp => {
             const user: CurrentUser = resp as CurrentUser;
+            this.role = user.role;
+            this.user = user.user;
             if (user) {
               if(user.role === "EMPLOYEE"){
                 //this.employee = user;

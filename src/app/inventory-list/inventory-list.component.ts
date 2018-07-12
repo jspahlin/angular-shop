@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../inventory.service';
 import { Inventory } from '../inventory';
+import { User } from '../user';
 
 @Component({
   selector: 'app-inventory-list',
@@ -10,7 +11,7 @@ import { Inventory } from '../inventory';
 })
 export class InventoryListComponent implements OnInit {
   public data: Inventory[];
-
+  public userRole: User;
 
   constructor(private cs: InventoryService) {
    }

@@ -1,8 +1,27 @@
 
   <ul>
     <li *ngFor= "let d of data" value="{{d.id}}">
+     <img src={{d.card.imageUrl}} width="150" height="200" align = "left"/>
+     <p >
       {{d.card.name}},
-      {{d.card.set}}
+      {{d.card.set.name}},
+      {{d.card.rarity.name}}</p>
+      <ul>
+        <li *ngFor= "let t of d.card.type" value="{{t.id}}">
+        {{t.name}}
+        </li>
+      </ul>
+      <p>
+      {{d.card.text}},
+      Price:
+      {{d.card.price}} Cents
+      </p>
+      <button ng-click="addCart()" >Add to Cart </button>
+    <div ng-if="userRole == EMPLOYEE"> 
+    <button ng-click="addStock()">add stock</button>
+    </div>
     </li>
+    
+    
   </ul>
 
