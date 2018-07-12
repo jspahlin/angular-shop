@@ -1,28 +1,35 @@
 
-  <ul>
-    <li *ngFor= "let d of data" value="{{d.id}}">
-     <img src={{d.card.imageUrl}} width="150" height="200" align = "left"/>
-     <p >
-      {{d.card.name}},
-      {{d.card.set.name}},
-      {{d.card.rarity.name}}</p>
-      <ul>
-        <li *ngFor= "let t of d.card.type" value="{{t.id}}">
-        {{t.name}}
-        </li>
-      </ul>
-      <p>
-      {{d.card.text}},
-      Price:
-      {{d.card.price}} Cents
-      </p>
-      <input type="number" [(ngModel)]="d.quantity">
-      <button (click)="addCart(d.id, d.quantity)" >Add to Cart </button>
-    <div ng-if="userRole == EMPLOYEE"> 
-    <button ng-click="addStock()">add stock</button>
+  
+    <div *ngFor= "let d of data" >
+      <div class="row">
+        <div class="col-4">
+     <img src={{d.card.imageUrl}} width="200" height="275" align = "left"/></div>
+     <div class="col-4" >
+       <div class="container">
+       <div class="row">
+       <div class="col-4">
+      Name:<strong>{{d.card.name}}</strong><br> 
+      Set:{{d.card.set.name}}<br> 
+     Rarity:{{d.card.rarity.name}}
+        <div *ngFor= "let t of d.card.type" >
+        Type:{{t.name}}
+        </div>
+      <strong>Text:</strong>{{d.card.text}}<br> 
+      Price:${{d.card.price/100}}<br>  </div>
+      </div></div></div>
+      <div class="row">
+        <div class="container">
+      <div>
+        
+      <input type="number" [(ngModel)]="d.quantity" >
+      <button (click)="addCart(d.id, d.quantity)" class="btn btn-primary">Add to Cart </button></div>
+    <div>
+      <div *ngIf="isAdmin()">  
+        <input type="number" [(ngModel)]="d.stock">
+    <button ng-click="addStock(d.id, d.stock)"class="btn btn-primary">add stock</button></div></div></div></div>
     </div>
-    </li>
+    </div>
     
     
-  </ul>
+  
 

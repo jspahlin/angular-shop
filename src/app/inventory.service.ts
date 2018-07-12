@@ -34,8 +34,14 @@ export class InventoryService{
 
 
     public getInventory(id: number): Observable<Inventory>  {
-        
+
         return this.http.get<Inventory>(this.baseUrl+ '/inventory/'+id, this.httpOption);
 }
+
+  public getTopCard(): Observable<Inventory>  {
+
+    return this.http.get<Inventory>(this.baseUrl+ '/top', this.httpOption);
+  }
+
 
 }

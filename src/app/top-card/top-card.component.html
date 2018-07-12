@@ -1,0 +1,31 @@
+<div class="container top-card">
+  <div class="row">
+    <div class="col-3">
+      <img src={{inv.card.imageUrl}} width="150" height="200" align = "left"/>
+    </div>
+    <div class="col-9">
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            {{inv.card.name}}
+          </div>
+          <div class="col-3">
+            {{inv.card.set.name}}
+          </div>
+          <div class="col-3">
+            {{inv.card.rarity.name}}
+          </div>
+          <div class="col-3">
+            ${{inv.card.price/100}}
+          </div>
+        </div>
+        <div class="col-9">
+
+        </div>
+        <div class="col-3">
+          <button class="btn-primary" (click)="addCart(inv.id, 1)" >Add 1 to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

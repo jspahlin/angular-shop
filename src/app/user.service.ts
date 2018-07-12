@@ -44,6 +44,15 @@ export class UserService {
             this.role = user.role;
             const role = this.role;
             console.log(role);
+            console.log("-")
+            console.log(resp);
+            console.log("-")
+            //const role: string = resp.role as string;
+            const user: CurrentUser = resp as CurrentUser;
+            this.user = user.user;
+            this.role = user.role;
+            const role: string = this.role;
+            // console.log(role);
             console.log(user);
 
             if(role === "EMPLOYEE"){

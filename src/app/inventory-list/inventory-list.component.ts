@@ -4,6 +4,7 @@ import { Inventory } from '../inventory';
 import { User } from '../user';
 import { Cart } from '../cart';
 import { CartService } from '../cart.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-inventory-list',
@@ -16,7 +17,7 @@ export class InventoryListComponent implements OnInit {
   public cart: Cart;
   public userRole: User;
 
-  constructor(private cs: InventoryService, private cartService: CartService) {
+  constructor(private cs: InventoryService, private userService: UserService, private cartService: CartService) {
    }
 
   ngOnInit() {
@@ -31,4 +32,10 @@ export class InventoryListComponent implements OnInit {
     this.cartService.add(this.cart.id, x, quantity).subscribe(v=>{this.cart = v as Cart;});
   }
 
+  isEmployee(): boolean{
+    return this.userService.isEmployee();
+  }
+  isAdmin(): boolean{
+    return this.userService.isAdmin();
+  }
 }
