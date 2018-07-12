@@ -49,6 +49,7 @@ import { InvoiceListComponent } from './invoice-list/invoice-list.component';
     AddInventoryComponent,
     InvoiceListComponent
 
+    SingleInventoryComponent
   ],
   imports: [
     BrowserModule,
