@@ -13,8 +13,8 @@
       </ul>
       <p>
       {{d.card.text}},
-      Price:
-      {{d.card.price}} Cents
+      Price:$
+      {{d.card.price/100}} 
       </p>
       <button ng-click="addCart()" >Add to Cart </button>
     <div ng-if="userRole == EMPLOYEE"> 
