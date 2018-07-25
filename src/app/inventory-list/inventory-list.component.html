@@ -1,6 +1,6 @@
 
   
-    <div *ngFor= "let d of data" >
+    <div *ngFor= "let d of data">
       <div class="row">
         <div class="col-4">
      <img src={{d.card.imageUrl}} width="200" height="275" align = "left"/></div>
@@ -22,13 +22,15 @@
       <div>
         
       <input type="number" [(ngModel)]="d.quantity" >
-      <button (click)="addCart(d.id, d.quantity)" class="btn btn-primary">Add to Cart </button></div>
+      <button (click)="addCart(d.card.id, d.quantity)" class="btn btn-primary">Add to Cart </button></div>
     <div>
-      <div *ngIf="isAdmin()">  
+      <div *ngIf="isEmployee() || isAdmin()">  
         <input type="number" [(ngModel)]="d.stock">
-    <button ng-click="addStock(d.id, d.stock)"class="btn btn-primary">add stock</button></div></div></div></div>
+    <button ng-click="addStock(d.card.id, d.stock)"class="btn btn-primary">add stock</button></div></div></div></div>
     </div>
     </div>
+
+    <button class = "add-inventory" routerLink="/add-inventory" *ngIf="isEmployee() || isAdmin()">Add Inventory</button>
     
     
   
